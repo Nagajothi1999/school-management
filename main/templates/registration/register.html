@@ -1,4 +1,5 @@
 {% extends 'main/base.html' %}
+{% load static %}
 {% block title %}Register{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -7,6 +8,9 @@
     {% csrf_token %}
     {{form|crispy}}
     <p>Already have an account? <a href="/login">Login Now</a>!</p>
-    <button type="submit" class="btn btn-success">Register</button>
+    <button id="register-submit" type="submit" class="btn btn-success mb-3" disabled>
+        Register
+    </button>
 </form>
+<script src="{% static "/javascript/register.js" %}" defer></script>
 {% endblock %}
